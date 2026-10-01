@@ -1,12 +1,12 @@
 # Changelog
 
-## [2.10.0] - 2026-10-01
-
-- Découpage en modules sous `src/` : code partagé, service worker, script wiki, script mail, popup.
-- Le popup lit les comptes, les exports et les réglages dans `chrome.storage`, sans passer par l'onglet wiki.
-- README réécrit. Ajout de `CONTRIBUTORS.md`.
-- L'inscription, le gate `/pull` et l'ouverture des packs restent ceux de la 2.9.2.
-- L'export JSON indique la version `2.10.0`.
+## [3.0.4] - 2026-10-01
+- Import de comptes prédéfinis : prise en charge des listes JSON, des exports JSON contenant `accounts` et des objets indexés par adresse e-mail.
+- Documentation du changement manuel et automatique de compte.
+- Changement de compte : suppression de la session Supabase locale au lieu de l’ancienne route `/logout` inexistante.
+- Changement de compte : suppression des cookies, du stockage local et d’IndexedDB limitée aux domaines WikiMasters.
+- Le changement automatique se déclenche uniquement si la page indique explicitement qu’il ne reste aucun pack ; un compteur de packs disponibles ne le déclenche plus.
+- Si la page ne fournit pas de texte explicite, le changement s’effectue après la fermeture d’au moins un pack et l’absence stable de bouton « Ouvrir ».
 
 ## [2.9.2] - 2026-09-27
 - content.js : suppression de l'arret sur legendarie. L'ouverture des packs

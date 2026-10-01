@@ -1,35 +1,21 @@
 {
   "manifest_version": 3,
   "name": "WikiMasters Pack Hunter",
-  "version": "2.10.0",
-  "description": "Inscription auto, rotation mailbox, gate /pull, ouverture des packs et suivi des cartes.",
-  "permissions": ["storage", "windows", "tabs", "downloads"],
+  "version": "3.0.4",
+  "description": "WikiMasters Pack Hunter v3.0.4 - inscription auto, rotation, gate auto, suivi des comptes et changement automatique après épuisement des packs.",
+  "permissions": ["storage","windows","tabs","downloads","browsingData"],
   "host_permissions": [
     "https://www.wiki-masters.com/*",
     "https://wiki-masters.com/*",
     "https://10minutemail.com/*"
   ],
-  "action": {
-    "default_title": "WikiMasters Pack Hunter",
-    "default_popup": "src/popup/popup.html"
-  },
+  "action": {"default_title":"WikiMasters Pack Hunter","default_popup":"popup.html"},
   "content_scripts": [
-    {
-      "matches": ["https://www.wiki-masters.com/*", "https://wiki-masters.com/*"],
-      "js": ["src/content/wiki/index.js"],
-      "type": "module",
-      "run_at": "document_start"
-    },
-    {
-      "matches": ["https://10minutemail.com/*"],
-      "js": ["src/content/mail/index.js"],
-      "type": "module",
-      "run_at": "document_idle"
-    }
+    {"matches":["https://www.wiki-masters.com/*","https://wiki-masters.com/*"],
+     "js":["storage.js","content.js"],"run_at":"document_start"},
+    {"matches":["https://10minutemail.com/*"],
+     "js":["storage.js","email.js"],"run_at":"document_idle"}
   ],
-  "background": {
-    "service_worker": "src/background/index.js",
-    "type": "module"
-  },
+  "background": {"service_worker":"background.js"},
   "incognito": "spanning"
 }
