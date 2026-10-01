@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.10.0] - 2026-10-01
+
+- Découpage en modules sous `src/` : code partagé, service worker, script wiki, script mail, popup.
+- Le popup lit les comptes, les exports et les réglages dans `chrome.storage`, sans passer par l'onglet wiki.
+- README réécrit. Ajout de `CONTRIBUTORS.md`.
+- L'inscription, le gate `/pull` et l'ouverture des packs restent ceux de la 2.9.2.
+- L'export JSON indique la version `2.10.0`.
+
 ## [2.9.2] - 2026-09-27
 - content.js : suppression de l'arret sur legendarie. L'ouverture des packs
   continue quelle que soit la rarete rencontree.

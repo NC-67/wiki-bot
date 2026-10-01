@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pack Hunter</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<main>
+  <h1>WikiMasters Pack Hunter</h1>
+  <p id="site">Vérification de la page…</p>
+  <div id="status">—</div>
+  <div id="packs">Packs parcourus : —</div>
+  <button id="toggle" disabled>Chargement…</button>
+  <button id="closeIncognito" class="danger" type="button">Fermer toutes les fenêtres privées</button>
+  <div id="closeIncognitoStatus" aria-live="polite"></div>
+
+  <section class="settings">
+    <h2>Comptes</h2>
+    <div id="accountsSummary">Chargement…</div>
+    <div id="accountsList"></div>
+    <button id="exportJSON" class="secondary" type="button">Exporter JSON</button>
+    <button id="exportCSV" class="secondary" type="button">Exporter CSV</button>
+    <button id="clearAccounts" class="danger" type="button">Effacer tous les comptes</button>
+    <div id="accountsStatus" aria-live="polite"></div>
+  </section>
+
+  <section class="settings">
+    <h2>Automatisation</h2>
+    <label class="choice"><input id="autoSignup" type="checkbox"> Inscription automatisée</label>
+    <label class="choice"><input id="autoStartupGate" type="checkbox"> Valider automatiquement le gate /pull</label>
+  </section>
+
+  <section class="settings">
+    <h2>Timers</h2>
+    <label>Détection / polling <output id="pollMsOut"></output> ms<input id="pollMs" type="range" min="20" max="1000" step="10"></label>
+    <label>Après ouverture d'un pack <output id="actionDelayOut"></output> ms<input id="actionDelay" type="range" min="50" max="2000" step="10"></label>
+    <label>Entre les cartes <output id="viewDelayOut"></output> ms<input id="viewDelay" type="range" min="20" max="1500" step="10"></label>
+    <label>Réessai / attente <output id="retryDelayOut"></output> ms<input id="retryDelay" type="range" min="50" max="3000" step="10"></label>
+    <label>Changement de page <output id="navigationDelayOut"></output> ms<input id="navigationDelay" type="range" min="0" max="1000" step="10"></label>
+    <label>Lecture des mails <output id="emailPollMsOut"></output> ms<input id="emailPollMs" type="range" min="100" max="5000" step="50"></label>
+    <label>Avant remplissage du code <output id="emailFillDelayOut"></output> ms<input id="emailFillDelay" type="range" min="0" max="2000" step="10"></label>
+    <label>Avant remplissage inscription <output id="signupFillDelayOut"></output> ms<input id="signupFillDelay" type="range" min="0" max="2000" step="10"></label>
+    <label>Avant clic « Créer mon compte » <output id="signupSubmitDelayOut"></output> ms<input id="signupSubmitDelay" type="range" min="0" max="2000" step="10"></label>
+    <label>Vérif. bouton inscription <output id="signupButtonPollMsOut"></output> ms<input id="signupButtonPollMs" type="range" min="25" max="500" step="5"></label>
+    <label>Timeout bouton <output id="signupButtonTimeoutMsOut"></output> ms<input id="signupButtonTimeoutMs" type="range" min="1000" max="30000" step="500"></label>
+    <label>Avant clic « Vérifier et continuer » <output id="otpSubmitDelayOut"></output> ms<input id="otpSubmitDelay" type="range" min="0" max="2000" step="10"></label>
+    <label>Timeout résultat inscription <output id="signupResultTimeoutMsOut"></output> ms<input id="signupResultTimeoutMs" type="range" min="2000" max="60000" step="500"></label>
+    <label>Polling résultat inscription <output id="signupResultPollMsOut"></output> ms<input id="signupResultPollMs" type="range" min="100" max="2000" step="50"></label>
+    <button id="reset" class="secondary" type="button">Réinitialiser les timers</button>
+    <p class="hint">Les timers sont enregistrés automatiquement.</p>
+  </section>
+</main>
+<script type="module" src="popup.js"></script>
+</body>
+</html>
